@@ -6,15 +6,15 @@ on:
   pull_request:
     branches: ["main"]
   schedule:
-    - cron: "0 6 * * *"  # Runs daily at 11:45 AM NPT; 6:00 AM UTC
-  workflow_dispatch:  # Allows manual runs
+    - cron: "0 6 * * *" # Runs daily at 11:45 AM NPT; 6:00 AM UTC
+  workflow_dispatch: # Allows manual runs
 
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        env: ["KESH", "ABHI"]  # Hardcoded environments
+        env: ["nitesh", "nabin"] # Hardcoded environments
 
     steps:
       # Step 1: Checkout code
@@ -62,7 +62,7 @@ jobs:
 
           # Notify CI status
           # MESSAGE="$EMOJI GitHub Actions CI Workflow: $STATUS for ${{ matrix.env }}\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nTriggered By: ${{ github.actor }}"
-          
+
           MESSAGE="$STATUS for ${{ matrix.env }} $EMOJI"
           curl -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
               -H "Content-Type: application/json" \
