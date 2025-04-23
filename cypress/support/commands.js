@@ -26,6 +26,8 @@
 
 
 Cypress.Commands.add("login", (password, username, dp) =>{
+  console.log("Username:", Cypress.env('USER_NAME'));
+  console.log("Password:", Cypress.env('PASSWORD'));
     // username and password input
     cy.get('#password').clear().type(password, {
         log: false
