@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        env: ["nitesh_env", "nabin"] # Hardcoded environments
+        env: ["nitesh", "nabin"] # Hardcoded environments
 
     steps:
       # Step 1: Checkout code
