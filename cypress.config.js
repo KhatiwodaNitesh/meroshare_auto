@@ -6,13 +6,13 @@
 //     setupNodeEvents(on, config) {
 //       // implement node event listeners here
 //     },
-//     baseUrl:"https://meroshare.cdsc.com.np/", 
+//     baseUrl:"https://meroshare.cdsc.com.np/",
 //     env:{...process.env},
 //   },
 // });
 
 // cypress.config.js
-require('dotenv').config({ path: '.env.ms' }); // <-- Add this line
+require("dotenv").config({ path: ".env.ms" }); // <-- Add this line
 
 const { defineConfig } = require("cypress");
 
@@ -29,10 +29,10 @@ module.exports = defineConfig({
       TRANSACTION_PIN: process.env.TRANSACTION_PIN,
       BANK_NAME: process.env.BANK_NAME,
       TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN,
-      TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID
+      TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
     },
     setupNodeEvents(on, config) {
       return config;
-    }
-  }
+    },
+  },
 });
