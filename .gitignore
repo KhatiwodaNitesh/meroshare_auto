@@ -30,3 +30,4 @@ cypress/screenshots
 js/*.js
 .env
 .env.*
+cypress.env.json

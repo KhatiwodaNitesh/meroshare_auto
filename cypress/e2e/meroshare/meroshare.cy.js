@@ -96,12 +96,12 @@ describe("Meroshare Automation", () => {
     resppp.map((dat) => {
       dat.map((data) => {
         cy.visit("/");
+        cy.wait(1000);
         cy.get("li.nav-item")
           .contains("My ASBA", {
             matchCase: false,
           })
           .click();
-
         cy.get(".company-list .company-name span[tooltip='Company Name']")
           .contains(data.companyName)
           .should("be.visible");
@@ -111,14 +111,15 @@ describe("Meroshare Automation", () => {
           .within(() => {
             cy.get(".action-buttons button").click();
           });
+        cy.wait(1000);
 
         // select the bank and confirm for buy.
         if (result.bankName == "" || !result.bankName) {
           cy.get("#selectBank").select(1);
         } else {
           cy.get("#selectBank")
-            .select(result.bankName.toUpperCase(), { matchCase: false })
-            .should("contain.text", result.bankName.toUpperCase());
+            .select(result.bankName, { matchCase: false })
+            .should("contain.text", result.bankName);
         }
 
         // Wait for account number dropdown to be visible and select the second option
